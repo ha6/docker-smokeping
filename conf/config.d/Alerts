@@ -1,0 +1,26 @@
+*** Alerts ***
+to = alertee@address.somewhere
+from = smokealert@company.xy
+
+
+
+#如果在12次检查中出现了3次丢包的情况(不论丢多少个包)，就进行alert；
++someloss
+type = loss
+# in percent
+pattern = >0%,*12*,>0%,*12*,>0%
+comment = loss 3 times  in a row
+
+#如果连续出现两次50毫秒以上的延时，就进行alert；
++rttbad
+type = rtt
+# in milliseconds
+pattern = ==S,>50,>50
+comment = route
+
+#之前5次检查延时都少于10毫秒，前6次检查延时都少于100毫秒，第7次开始连续3次检查延时都大于100毫秒的话，就进行alert。
++rttdetect
+type = rtt
+# in milliseconds
+pattern = <10,<10,<10,<10,<10,<100,>100,>100,>100
+comment = routing messed up again ?
