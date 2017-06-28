@@ -41,3 +41,6 @@ smokeping container
 `docker run -d --name smokeping_slave -e ZONE="Asia/Shanghai" -e SECRET="password" babyfenei/smokeping smokeping --master-url=http://**Your_master_server_ip**/smokeping.cgi --cache-dir=/var/lib/smokeping/ --shared-secret=/secret.txt --slave-name=**slave_name** --nodaemon`
 
 ----------------------
+默认启用http加密
+用户名:admin
+密码:  admin@123
